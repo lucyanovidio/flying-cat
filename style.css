@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+    background-image: linear-gradient(to top, #628eff, #6eb2ff, #36b5ff, #91e5ff, #ecfbff);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  font-size: 1.6rem;
+
+  overflow: hidden;
+}
+
+.game-wrapper {
+    width: min(90%, 50rem);
+    height: 100vh;
+    position: relative;
+}
+
+.cloud-1 {
+    width: 15rem;
+    position: absolute;
+    left: 1rem;
+
+    animation: subirDescer 10000ms infinite;
+}
+
+.cloud-2 {
+    width: 22rem;
+    position: absolute;
+    right: 1rem;
+    
+    animation: subirDescer 20000ms infinite;
+}
+
+.cloud-2.maior {
+    width: 50rem;
+    right: 18rem;
+
+    opacity: .5;
+    animation: subirDescerTransparente 200000ms infinite;
+}
+
+#cat {
+    width: 7rem;
+
+    position: absolute;
+    right: 43%;
+    bottom: 38%;
+    z-index: 1;
+
+    animation: aparecer 1000ms forwards 1;
+}
+
+@keyframes subirDescer {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0;
+    }
+    80% {
+        transform: translateY(100vh);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+}
+
+@keyframes subirDescerTransparente {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: .3;
+    }
+    70% {
+        opacity: 0;
+    }
+    80% {
+        transform: translateY(100vh);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+}
+
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(100vh);
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0vh);
+    }
+}
+
+.buttons {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+
+    position: absolute;
+    bottom: 10%;
+
+    animation: aparecer 1500ms forwards;
+}
+
+button {
+    width: 10rem;
+    height: 10rem;
+
+    border-radius: 50%;
+
+    border: none;
+    background-color: black;
+
+    opacity: .7;
+
+    cursor: pointer;
+}
+
+button:active {
+    opacity: .3;
+}
